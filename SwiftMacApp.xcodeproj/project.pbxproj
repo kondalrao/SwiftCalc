@@ -397,6 +397,7 @@
 				68F07BA519B917B2007BABEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68F07BA619B917B2007BABEB /* Build configuration list for PBXNativeTarget "SwiftMacAppTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +406,7 @@
 				68F07BA819B917B2007BABEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
