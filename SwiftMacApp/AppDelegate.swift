@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var lblResult: NSTextField!
     @IBOutlet weak var lblOper: NSTextFieldCell!
 
+    var memValue: NSString! = "0"
     var prevNum: NSString! = "0"
     var result: NSString! = "0"
     var oper: NSString! = ""
@@ -71,20 +72,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         println("Calculation \(n1) \(oper) \(res) = \(prevNum)")
     }
     
-    @IBAction func btnFuncAction(btnFunc: NSButton) {
-        //println(btnFunc.title)
-        
+    func clear() {
         oper = ""
         prevNum = "0"
         result = "0"
+    }
+    
+    @IBAction func btnFuncAction(btnFunc: NSButton) {
+        //println(btnFunc.title)
         
+        clear()
         updateResult("0")
     }
     
     @IBAction func btnMemAction(btnMem: NSButton) {
         println(btnMem.title)
+        var res: Double = result.doubleValue
+        var mem: Double = memValue.doubleValue
         
-        updateResult(result)
+        if btnMem.title == "MC" {
+            memValue = "0"
+        } else if btnMem.title == "MR" {
+            result = memValue
+            updateResult(memValue)
+            return
+        } else if btnMem.title == "M+" {
+            memValue = "\(mem + res)"
+        } else if btnMem.title == "M-" {
+            memValue = "\(mem - res)"
+        }
+        
+        clear()
+        
     }
 
     @IBAction func btnOperatorAction(btnOper: NSButton) {
